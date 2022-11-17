@@ -5,8 +5,8 @@
 // But         Identifier tous les nombres premiers dans un intervalle
 //             saisi par l'utilisateur [2-n].
 //             Après la saisie le programme identifie et affiche les
-//             nombres premiers. Le programme affiche avant et après
-//             le crible, l'état du tableau.
+//             nombres premiers. Le programme affiche le tableau cribler
+//             permettant de calculer les nombres premiers.
 //
 // Remarque
 //
@@ -14,18 +14,18 @@
 //
 // Compilateur Bundled MinGW - Version w64 9.0
 
-
 #include "utilitaires.h"
 #include "eratosthene.h"
 
 using namespace std;
 
-// Permet d'afficher un vecteur d'entier ainsi:  cout << vecteur
-
-
-
+// nom         main
+// but         Demande a l'utilisateur le limite, calul le tableau de cribler et l'affiche.
+//             Calcul ensuite les chiffres premiers grâce au tableau et les affiches.
+// param       tableau     Tableau à afficher
+// return      void
+// exception   n/a
 int main() {
-
     // Déclaration variables
     const string MSG_ENTREE = "Bonjour, veuillez entrer un nombre [2 - n] :";
     const string MSG_ERREUR = "Cette entree est incorrecte, veuillez recommencer.\n";
@@ -33,12 +33,12 @@ int main() {
     const int VALEUR_MAX = 100;
     int limite = saisie(VALEUR_MIN, VALEUR_MAX, MSG_ENTREE, MSG_ERREUR);
 
-    vector<bool> criblage = tableauCriblage(limite);
-    afficherTableauCriblage(criblage);
+    vector<bool> criblage = tableauCrible(limite);
+    afficherTableauCrible(criblage);
 
     cout << endl;
-    cout << "Chiffres premiers jusqu'a : " << limite << "." << endl;
-    vector<int> nbrePremiers = convertirTableau(criblage);
+    cout << "Nombres premiers jusqu'a " << limite << ":" << endl;
+    vector<int> nbrePremiers = convertirTableauCrible(criblage);
     cout << nbrePremiers;
 
     return EXIT_SUCCESS;

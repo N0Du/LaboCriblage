@@ -35,13 +35,6 @@
 // exception    n/a
 int saisie(int min, int max, const std::string& msgEntree, const std::string& msgErreur);
 
-// nom          afficherVecteurEntiers
-// but          Afficher un vecteur d'entiers
-//
-// param        const std::vector<int>&           vecteur a passer en paramètre
-// return       n/a
-void afficherVecteurEntiers(const std::vector<int>& vecteur);
-
 // nom          operator<<
 // but          Permet d'envoyer un vecteur à l'opérateur de flux "<<"
 //

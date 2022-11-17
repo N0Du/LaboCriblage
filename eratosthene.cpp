@@ -18,27 +18,22 @@
 
 using namespace std;
 
-const int VALEUR_DEPART = 2; // Valeur à partir de laquelle le calcul des nombres premiers commence
 
-// nom         tableauCriblage
-// but         Calcul le tableau de criblage
-//             d'eratosthene jusqu'à une limite donnée
-// param       limite        limite jusqu'à laquelle calculer les chiffres premiers
-// return      vector<bool>  Contient le criblage
-// exception   n/a
-vector<bool> tableauCriblage(int limite){
-    vector<bool> tableau (limite - VALEUR_DEPART, true);
+vector<bool> tableauCrible(int limite){
+    vector<bool> tableau (limite, true);
 
     //Calcul du tableau de criblage
     for(int i = 0; i < tableau.size()-1; ++i){
+        if(i == 0 || i == 1){
+            tableau.at(i) = false;
+        }
         if(tableau.at(i)){
-            int premierNbr = i + 2;
             // Verifie si tout les nombre au dessus de premierNbr sont des multiples de premierNbr
             // Si un nombre est un multiple de premierNbr, la valeur à son index est changée à false.
-            for(int y = int(tableau.size())-1; y > i; --y){
+            // On commence au dernier index du tableau donc tableau.size()-1
+            for(int y = int(tableau.size()) - 1; y > i; --y){
                 if(tableau.at(y)){
-                    int nombreTeste = y + VALEUR_DEPART;
-                    if(not(nombreTeste % premierNbr)){
+                    if(not(y % i)){
                         tableau.at(y) = false;
                     }
                 }
@@ -49,25 +44,20 @@ vector<bool> tableauCriblage(int limite){
     return tableau;
 }
 
-// nom         afficherTableauCriblage
-// but         affiche un tableau de criblage donner
-// param       tableau   Tableau qui sera afficher par la fonction
-// return      void
-// exception   n/a
-void afficherTableauCriblage(const vector<bool>& tableau){
-    const int COL_MAX     = 20; // Maximum de colonnes à afficher
+void afficherTableauCrible(const vector<bool>& tableauCrible){
+    const int COL_MAX     = 10; // Maximum de colonnes à afficher
     const int LARGEUR_COL = 2; // Largeur des collones à afficher
 
     int compteurCol = 0;
-    cout << "Tableau de criblage: " << endl;
+    cout << "Tableau crible: " << endl;
 
-    for(bool && element : tableau){
+    for(bool && element : tableauCrible){
         cout << right << setw(LARGEUR_COL);
 
         if(element){
-            cout << "O";
-        }else{
             cout << "X";
+        }else{
+            cout << "O";
         }
 
         ++compteurCol;
@@ -81,18 +71,12 @@ void afficherTableauCriblage(const vector<bool>& tableau){
     cout << endl;
 }
 
-// nom         convertirTableau
-// but         Converti un tableau de criblage en une liste des chiffres premiers
-// param       tableauCriblage    Tableau qui doit être converti
-// return      vector<int>  Vector contenant la liste de tout les chiffres premiers.
-// exception   n/a
-vector<int> convertirTableau (vector<bool>& tableauCriblage) {
+vector<int> convertirTableauCrible (vector<bool>& tableauCrible) {
     vector<int> resultat;
 
-    // Si une valeur du tableau de
-    for (int i = 0 ; i < tableauCriblage.size(); ++i) {
-        if (tableauCriblage[i]) {
-            resultat.push_back(i+VALEUR_DEPART);
+    for (int i = 0 ; i < tableauCrible.size(); ++i) {
+        if (tableauCrible[i]) {
+            resultat.push_back(i);
         }
     }
 

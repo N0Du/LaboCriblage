@@ -17,30 +17,29 @@
 
 #include <vector>
 
-// nom         tableauCriblage
-// but         Créer un tableau de criblage jusqu'à une limite
+// nom         tableauCrible
+// but         Créer un tableau criblé jusqu'à une limite
 //             donnée
-// param       limite       limite jusqu'à laquelle calculer le tableau de criblage
-// return      vector<bool> Vecteur contenant le tableau de criblage.
+// param       limite       limite jusqu'à laquelle calculer le tableau.
+// return      vector<bool> Vecteur contenant le tableau de criblé.
 // exception   n/a
-std::vector<bool> tableauCriblage(int limite);
+std::vector<bool> tableauCrible(int limite);
 
 
-// nom         afficherTableauCriblage
-// but         Affiche un tableau de criblage
-// param       tableau     Tableau à afficher
+// nom         afficherTableauCrible
+// but         Affiche un tableau criblé donné
+// param       tableauCrible     Tableau a afficher
 // return      void
 // exception   n/a
-void afficherTableauCriblage(const std::vector<bool>& tableau);
+void afficherTableauCrible(const std::vector<bool>& tableauCrible);
 
 
-// nom         convertirTableau
+// nom         convertirTableauCrible
 // but         Calcul les nombres premiers grâce à un tableau
-//             de criblage.
-// param       tableauCriblage  Le tableau de criblage qui sera reinterpété en nombre premier
+//             criblé.
+// param       tableauCrible  Le tableau criblé qui sera reinterpété en nombre premier
 // return      vector<int>  Vecteur contenant les chiffres premiers.
 // exception   n/a
-std::vector<int> convertirTableau (std::vector<bool>& tableauCriblage);
-
+std::vector<int> convertirTableauCrible (std::vector<bool>& tableauCrible);
 
 #endif //LABO_CRIBLE_ERATOSTHENE_ERATOSTHENE_H
