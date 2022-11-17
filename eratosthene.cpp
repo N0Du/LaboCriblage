@@ -24,9 +24,12 @@ vector<bool> tableauCrible(int limite){
 
     //Calcul du tableau de criblage
     for(int i = 0; i < tableau.size()-1; ++i){
+        // 0 et 1 ne doivent pas être tester ni consideré comme nombre premier.
         if(i == 0 || i == 1){
             tableau.at(i) = false;
+            continue;
         }
+
         if(tableau.at(i)){
             // Verifie si tout les nombre au dessus de premierNbr sont des multiples de premierNbr
             // Si un nombre est un multiple de premierNbr, la valeur à son index est changée à false.
@@ -40,7 +43,6 @@ vector<bool> tableauCrible(int limite){
             }
         }
     }
-
     return tableau;
 }
 

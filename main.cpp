@@ -38,8 +38,7 @@ int main() {
 
     cout << endl;
     cout << "Nombres premiers jusqu'a " << limite << ":" << endl;
-    vector<int> nbrePremiers = convertirTableauCrible(criblage);
-    cout << nbrePremiers;
+    cout << convertirTableauCrible(criblage);
 
     return EXIT_SUCCESS;
 }
